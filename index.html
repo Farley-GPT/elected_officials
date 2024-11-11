@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Elected Officials in Portland, Oregon 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .official-card {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        
+        .official-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .profile-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .profile-section.active {
+            max-height: 1000px;
+        }
+        
+        .district-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-blue-700 text-white py-8 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-2">Know Your Elected Officials</h1>
+            <h2 class="text-2xl text-center">Portland, Oregon 2025</h2>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Mayor Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.1s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Mayor</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('mayor-wilson')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Keith Wilson</h3>
+                            <p class="text-gray-600">Mayor of Portland</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Keith Wilson" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="mayor-wilson" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/keith-wilson.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Keith Wilson will go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- District 1 Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.2s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 1 (East Portland)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('avalos')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Candace Avalos</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Candace Avalos" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="avalos" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/candace-avalos.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Candace Avalos will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('smith')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Loretta Smith</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Loretta Smith" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="smith" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/loretta-smith.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Loretta Smith will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('dunphy')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Jamie Dunphy</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Jamie Dunphy" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="dunphy" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/jamie-dunphy.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Jamie Dunphy will go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- District 2 Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.3s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 2 (North and Northeast Portland)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('ryan')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Dan Ryan</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Dan Ryan" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="ryan" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/dan-ryan.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Dan Ryan will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('pirtle-guiney')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Elana Pirtle-Guiney</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Elana Pirtle-Guiney" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="pirtle-guiney" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/elana-pirtle-guiney.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Elana Pirtle-Guiney will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('kanal')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Sameer Kanal</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Sameer Kanal" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="kanal" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/sameer-kanal.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Sameer Kanal will go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- District 3 Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.4s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 3 (Southeast Portland)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('novick')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Steve Novick</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Steve Novick" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="novick" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/steve-novick.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Steve Novick will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('koyama-lane')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Tiffany Koyama Lane</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Tiffany Koyama Lane" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="koyama-lane" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/tiffany-koyama-lane.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Tiffany Koyama Lane will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('morillo')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Angelita Morillo</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Angelita Morillo" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="morillo" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/angelita-morillo.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Angelita Morillo will go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- District 4 Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.5s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 4 (West Portland and some eastside neighborhoods)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('clark')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Olivia Clark</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Olivia Clark" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="clark" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/olivia-clark.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Olivia Clark will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('green')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Mitch Green</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Mitch Green" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="green" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/mitch-green.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Mitch Green will go here...</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('zimmerman')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Eric Zimmerman</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Eric Zimmerman" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="zimmerman" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/eric-zimmerman.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Eric Zimmerman will go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- City Auditor Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.6s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">City Auditor</h2>
+            <div class="grid grid-cols-1 gap-6">  <!-- Adjusted grid for single auditor -->
+                <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('rede')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Simone Rede</h3>
+                            <p class="text-gray-600">City Auditor</p>
+                        </div>
+                        <img src="/api/placeholder/100/100" alt="Simone Rede" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="rede" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/simone-rede.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Profile information for Simone Rede will go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function toggleProfile(id) {
+            const profileSection = document.getElementById(id);
+            profileSection.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
