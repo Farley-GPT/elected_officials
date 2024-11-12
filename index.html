@@ -123,16 +123,22 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Loading overlay -->
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
+    <div class="loading-overlay fixed inset-0 bg-white flex items-center justify-center z-50" style="opacity: 1;">
+        <div class="loading-spinner border-4 border-t-4 border-blue-500 rounded-full w-16 h-16 animate-spin"></div>
     </div>
 
     <!-- Scroll to top button -->
-    <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button class="scroll-top fixed bottom-4 right-4 p-4 rounded-full text-white shadow-lg z-50" onclick="scrollToTop()" aria-label="Scroll to top">
         ↑
     </button>
 
@@ -149,7 +155,7 @@
     <section class="mb-12 district-section" style="animation-delay: 0.1s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Mayor</h2>
         <div class="grid grid-cols-1 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('mayor-wilson')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="mayor-wilson">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Keith Wilson</h3>
@@ -165,31 +171,24 @@
                     <p class="text-gray-700 mb-4">
                         I am a father, a neighbor, and a proud Portlander with a vision for a city crying out for real change.
                     </p>
-            
                     <p class="text-gray-700 mb-4">
                         We all see the pain of our unsheltered neighbors, the devastating impact on our community, and the unsustainable strain on local government. Enough is enough. We refuse to accept the status quo. Within one year, I’ll end unsheltered homelessness in our city.
                     </p>
-            
                     <p class="text-gray-700 mb-4">
                         You’ve heard promises before. Here’s the hard-won experience that will make this a reality:
                     </p>
-            
                     <p class="text-gray-700 mb-4">
                         In addition to my decades as an executive, I am also the founder of Shelter Portland, an innovative non-profit organization making progress in the battle to end unsheltered homelessness. I have assembled a team of experts with a winning blueprint to compassionately and immediately eliminate unsheltered homelessness without further burdening our taxpayers. We’ve seen real results, but we have so much more work to do.
                     </p>
-            
                     <p class="text-gray-700 mb-4">
                         Reforming our approach to unsheltered homelessness is a big challenge, but it isn’t my first. My transformational leadership took a decades-old trucking business, eliminated all fossil fuel usage in Portland, and built an unmatched safety culture while growing the company six times over. I want to bring that same award-winning innovation and operational competence to the city we love.
                     </p>
-            
                     <p class="text-gray-700 mb-4">
                         The city politicians and their failed policies that got us into this mess can’t be trusted to get us out. We need real change for our great city.
                     </p>
-            
                     <p class="text-gray-700 mb-4">
                         I’m rolling up my sleeves to get to work, and I want you by my side. Let’s build Portland’s future together.
                     </p>
-            
                     <p class="text-xl font-bold mt-8">Keith Wilson</p>
                 </div>
             </div>
@@ -200,7 +199,7 @@
     <section class="mb-12 district-section" style="animation-delay: 0.2s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">District 1 (East Portland)</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('avalos')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="avalos">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Candace Avalos</h3>
@@ -217,7 +216,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('smith')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="smith">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Loretta Smith</h3>
@@ -234,7 +233,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('dunphy')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="dunphy">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Jamie Dunphy</h3>
@@ -257,7 +256,7 @@
     <section class="mb-12 district-section" style="animation-delay: 0.3s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">District 2 (North and Northeast Portland)</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('ryan')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="ryan">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Dan Ryan</h3>
@@ -274,7 +273,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('pirtle-guiney')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="pirtle-guiney">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Elana Pirtle-Guiney</h3>
@@ -291,7 +290,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('kanal')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="kanal">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Sameer Kanal</h3>
@@ -314,7 +313,7 @@
     <section class="mb-12 district-section" style="animation-delay: 0.4s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">District 3 (Southeast Portland)</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('novick')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="novick">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Steve Novick</h3>
@@ -331,7 +330,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('koyama-lane')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="koyama-lane">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Tiffany Koyama Lane</h3>
@@ -348,7 +347,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('morillo')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="morillo">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Angelita Morillo</h3>
@@ -371,7 +370,7 @@
     <section class="mb-12 district-section" style="animation-delay: 0.5s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">District 4 (West Portland and some eastside neighborhoods)</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('clark')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="clark">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Olivia Clark</h3>
@@ -388,7 +387,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('green')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="green">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Mitch Green</h3>
@@ -405,7 +404,7 @@
                 </div>
             </div>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('zimmerman')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="zimmerman">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Eric Zimmerman</h3>
@@ -428,7 +427,7 @@
     <section class="mb-12 district-section" style="animation-delay: 0.6s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">City Auditor</h2>
         <div class="grid grid-cols-1 gap-6">  <!-- Adjusted grid for single auditor -->
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('rede')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="rede">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">Simone Rede</h3>
@@ -442,32 +441,30 @@
                         Your browser does not support the audio element.
                     </audio>
                     <div class="container mx-auto px-4 py-8">
-
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">Simone Rede Re-Elected as Portland City Auditor</h2>
-                      
                         <div class="text-lg text-gray-700">
-                      
-                          <p class="mb-4">Simone Rede was re-elected as Portland City Auditor in the 2024 election, continuing her tenure that began in January 2023.  As the first person of color and the first LGBTQ+ individual to hold this position, Rede has brought a fresh perspective to the role of Portland's elected, independent watchdog.</p>
-                      
-                          <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Background in Public Service</h3>
-                          <p class="mb-4">Rede's professional background is deeply rooted in public service and auditing. She is a Certified Internal Auditor and a Certified Government Auditing Professional with over 15 years of experience in public service. Her academic credentials include a master's degree in public policy and management from Carnegie Mellon University and a bachelor's degree in urban studies from Vassar College.</p>
-                          <p class="mb-4">Prior to becoming City Auditor, Rede worked as a principal management auditor at Metro regional government and as a staff auditor at the Oregon Secretary of State Audits Division. Her experience extends to improving access to higher education in Portland area alternative schools. Rede's expertise has been recognized nationally, as she serves on the United States Government Accountability Office Domestic Working Group, addressing accountability issues across all levels of government.</p>
-                      
-                          <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Focus on Accountability and Accessibility</h3>
-                          <p class="mb-4">During her first term, Rede focused on making Portland's city government more accountable and accessible to the public. She implemented several initiatives, including building a constituent relations function for the Office and releasing reports that highlighted mismanagement, waste, and harm to Portlanders. Notably, she oversaw the first City audit of the Joint Office of Homeless Services.</p>
-                          <p class="mb-4">Rede's approach to auditing is people-centered, emphasizing the selection of topics that matter to Portlanders and inviting public input to inform the work of her office. She has actively sought community perspectives through surveys and focus groups when developing audit schedules and gathering evidence for conclusions.</p>
-                      
-                          <h3 class="text-2xl font-semibold text-gray-900 mb-2">Personal Life and Continued Service</h3>
-                          <p class="mb-4">In her personal life, Rede is an Oregonian, born in Salem and raised in Portland. She describes herself as the daughter of journalists, which she credits for her questioning nature. Rede is also an artist, having sung in choirs and played musical instruments for most of her life. She lives in northeast Portland with her wife and their three dogs.</p>
-                          <p class="mb-4">As Portland transitions to a new form of government, Rede's re-election ensures continuity and stability. Her experience and leadership are considered assets to the City and the people of Portland during this period of change. Rede's commitment to protecting the Office's independence and educating newly elected and appointed leaders about the Auditor's role remains a top priority for her second term.</p>
-                      
+                            <p class="mb-4">Simone Rede was re-elected as Portland City Auditor in the 2024 election, continuing her tenure that began in January 2023. As the first person of color and the first LGBTQ+ individual to hold this position, Rede has brought a fresh perspective to the role of Portland's elected, independent watchdog.</p>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Background in Public Service</h3>
+                            <p class="mb-4">Rede's professional background is deeply rooted in public service and auditing. She is a Certified Internal Auditor and a Certified Government Auditing Professional with over 15 years of experience in public service. Her academic credentials include a master's degree in public policy and management from Carnegie Mellon University and a bachelor's degree in urban studies from Vassar College.</p>
+                            <p class="mb-4">Prior to becoming City Auditor, Rede worked as a principal management auditor at Metro regional government and as a staff auditor at the Oregon Secretary of State Audits Division. Her experience extends to improving access to higher education in Portland area alternative schools. Rede's expertise has been recognized nationally, as she serves on the United States Government Accountability Office Domestic Working Group, addressing accountability issues across all levels of government.</p>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Focus on Accountability and Accessibility</h3>
+                            <p class="mb-4">During her first term, Rede focused on making Portland's city government more accountable and accessible to the public. She implemented several initiatives, including building a constituent relations function for the Office and releasing reports that highlighted mismanagement, waste, and harm to Portlanders. Notably, she oversaw the first City audit of the Joint Office of Homeless Services.</p>
+                            <p class="mb-4">Rede's approach to auditing is people-centered, emphasizing the selection of topics that matter to Portlanders and inviting public input to inform the work of her office. She has actively sought community perspectives through surveys and focus groups when developing audit schedules and gathering evidence for conclusions.</p>
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Personal Life and Continued Service</h3>
+                            <p class="mb-4">In her personal life, Rede is an Oregonian, born in Salem and raised in Portland. She describes herself as the daughter of journalists, which she credits for her questioning nature. Rede is also an artist, having sung in choirs and played musical instruments for most of her life. She lives in northeast Portland with her wife and their three dogs.</p>
+                            <p class="mb-4">As Portland transitions to a new form of government, Rede's re-election ensures continuity and stability. Her experience and leadership are considered assets to the City and the people of Portland during this period of change. Rede's commitment to protecting the Office's independence and educating newly elected and appointed leaders about the Auditor's role remains a top priority for her second term.</p>
                         </div>
-                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Description of Geographic Districts -->
     <section class="mb-12 district-section" style="animation-delay: 0.7s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Description of Geographic Districts</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district1-info')">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district1-info">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">District 1 (East Portland)</h3>
@@ -479,8 +476,8 @@
                     <p class="text-gray-700">East Portland district encompasses the areas east of 82nd Avenue, including the neighborhoods of Lents, Powellhurst-Gilbert, and Pleasant Valley. This district faces unique challenges related to infrastructure development, transportation access, and economic growth.</p>
                 </div>
             </div>
-    
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district2-info')">
+
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district2-info">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">District 2 (North/Northeast Portland)</h3>
@@ -492,8 +489,8 @@
                     <p class="text-gray-700">North and Northeast Portland district includes historic neighborhoods like Albina, Irvington, and St. Johns. This district has a rich cultural heritage and is focused on addressing issues of housing affordability and community preservation.</p>
                 </div>
             </div>
-    
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district3-info')">
+
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district3-info">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">District 3 (Southeast Portland)</h3>
@@ -505,8 +502,8 @@
                     <p class="text-gray-700">Southeast Portland district covers neighborhoods like Hawthorne, Division, and Foster-Powell. Known for its vibrant small business districts and residential areas, this district focuses on sustainable development and maintaining neighborhood character.</p>
                 </div>
             </div>
-    
-            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district4-info')">
+
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district4-info">
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800">District 4 (West/Southwest Portland)</h3>
@@ -520,19 +517,19 @@
             </div>
         </div>
     </section>
-    
- <!-- District Map Section -->
-<section class="mb-12 district-section" style="animation-delay: 0.8s">
-    <h2 class="text-3xl font-bold mb-6 text-gray-800">District Map</h2>
-    <div class="official-card bg-white rounded-lg shadow-md p-6">
-        <img id="district-map" src="images/district-map.jpg" alt="Portland Districts Map" class="w-full h-auto" />
-    </div>
-</section>
-    
+
+    <!-- District Map Section -->
+    <section class="mb-12 district-section" style="animation-delay: 0.8s">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">District Map</h2>
+        <div class="official-card bg-white rounded-lg shadow-md p-6">
+            <img id="district-map" src="images/district-map.jpg" alt="Portland Districts Map" class="w-full h-auto" loading="lazy" />
+        </div>
+    </section>
+
     <!-- New Form of Government Section -->
     <section class="mb-12 district-section" style="animation-delay: 0.9s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Portland's New Form of Government</h2>
-        <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('new-government')">
+        <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="new-government">
             <div class="flex items-center justify-between">
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">2024 Charter Reform Implementation</h3>
@@ -552,11 +549,11 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Ranked Choice Voting Section -->
     <section class="mb-12 district-section" style="animation-delay: 1.0s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Ranked Choice Voting</h2>
-        <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('ranked-choice')">
+        <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="ranked-choice">
             <div class="flex items-center justify-between">
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800">Understanding Portland's New Voting System</h3>
@@ -576,19 +573,18 @@
             </div>
         </div>
     </section>
-    
-    <!-- Add these styles to the existing <style> section -->
-    <style>
-    </style>
-    
-    <div class="map-overlay" onclick="toggleMap()"></div>
-    
-    <script>
-    // Add these functions to the existing <script> section
-    </script>
-    </main>
 
     <script>
+        // Debounce function for scroll event
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+        }
+
         // Remove loading overlay and initialize animations
         window.addEventListener('load', () => {
             document.querySelector('.loading-overlay').style.opacity = '0';
@@ -605,38 +601,41 @@
             }, 500);
         });
 
-        // Toggle profile sections
-        function toggleProfile(id) {
-            const profileSection = document.getElementById(id);
-            const card = profileSection.closest('.official-card');
-            
-            // Close all other profiles first
-            document.querySelectorAll('.profile-section.active').forEach(section => {
-                if (section.id !== id) {
-                    section.classList.remove('active');
+        // Toggle profile sections using event delegation
+        document.addEventListener('click', function(event) {
+            const target = event.target.closest('.official-card');
+            if (target) {
+                const profileId = target.getAttribute('data-profile-id');
+                const profileSection = document.getElementById(profileId);
+                
+                // Close all other profiles first
+                document.querySelectorAll('.profile-section.active').forEach(section => {
+                    if (section.id !== profileId) {
+                        section.classList.remove('active');
+                    }
+                });
+
+                // Toggle the clicked profile
+                profileSection.classList.toggle('active');
+
+                // Scroll into view on mobile
+                if (window.innerWidth <= 768 && profileSection.classList.contains('active')) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
                 }
-            });
-
-            // Toggle the clicked profile
-            profileSection.classList.toggle('active');
-
-            // Scroll into view on mobile
-            if (window.innerWidth <= 768 && profileSection.classList.contains('active')) {
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
             }
-        }
+        });
 
         // Scroll to top functionality
-        window.onscroll = function() {
+        window.onscroll = debounce(function() {
             const scrollButton = document.querySelector('.scroll-top');
             if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
                 scrollButton.classList.add('visible');
             } else {
                 scrollButton.classList.remove('visible');
             }
-        };
+        }, 100); // Adjust the delay as needed
 
         function scrollToTop() {
             window.scrollTo({
