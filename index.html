@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,14 +155,42 @@
                         <h3 class="text-xl font-semibold text-gray-800">Keith Wilson</h3>
                         <p class="text-gray-600">Mayor of Portland</p>
                     </div>
-                    <img src="/api/placeholder/100/100" alt="Keith Wilson" class="w-16 h-16 rounded-full object-cover"/>
+                    <img src="images/keith-wilson.jpg" alt="Keith Wilson" class="w-16 h-16 rounded-full object-cover"/>
                 </div>
                 <div id="mayor-wilson" class="profile-section mt-4">
                     <audio controls class="w-full mb-4">
                         <source src="audio/keith-wilson.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
-                    <p class="text-gray-700">Profile information for Keith Wilson will go here...</p>
+                    <p class="text-gray-700 mb-4">
+                        I am a father, a neighbor, and a proud Portlander with a vision for a city crying out for real change.
+                    </p>
+            
+                    <p class="text-gray-700 mb-4">
+                        We all see the pain of our unsheltered neighbors, the devastating impact on our community, and the unsustainable strain on local government. Enough is enough. We refuse to accept the status quo. Within one year, I’ll end unsheltered homelessness in our city.
+                    </p>
+            
+                    <p class="text-gray-700 mb-4">
+                        You’ve heard promises before. Here’s the hard-won experience that will make this a reality:
+                    </p>
+            
+                    <p class="text-gray-700 mb-4">
+                        In addition to my decades as an executive, I am also the founder of Shelter Portland, an innovative non-profit organization making progress in the battle to end unsheltered homelessness. I have assembled a team of experts with a winning blueprint to compassionately and immediately eliminate unsheltered homelessness without further burdening our taxpayers. We’ve seen real results, but we have so much more work to do.
+                    </p>
+            
+                    <p class="text-gray-700 mb-4">
+                        Reforming our approach to unsheltered homelessness is a big challenge, but it isn’t my first. My transformational leadership took a decades-old trucking business, eliminated all fossil fuel usage in Portland, and built an unmatched safety culture while growing the company six times over. I want to bring that same award-winning innovation and operational competence to the city we love.
+                    </p>
+            
+                    <p class="text-gray-700 mb-4">
+                        The city politicians and their failed policies that got us into this mess can’t be trusted to get us out. We need real change for our great city.
+                    </p>
+            
+                    <p class="text-gray-700 mb-4">
+                        I’m rolling up my sleeves to get to work, and I want you by my side. Let’s build Portland’s future together.
+                    </p>
+            
+                    <p class="text-xl font-bold mt-8">Keith Wilson</p>
                 </div>
             </div>
         </div>
@@ -437,6 +464,128 @@
                         </div>
                       </div>
     </section>
+    <section class="mb-12 district-section" style="animation-delay: 0.7s">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">Description of Geographic Districts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district1-info')">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">District 1 (East Portland)</h3>
+                        <p class="text-gray-600">Click to learn more</p>
+                    </div>
+                    <div class="text-2xl font-bold text-blue-600">1</div>
+                </div>
+                <div id="district1-info" class="profile-section mt-4">
+                    <p class="text-gray-700">East Portland district encompasses the areas east of 82nd Avenue, including the neighborhoods of Lents, Powellhurst-Gilbert, and Pleasant Valley. This district faces unique challenges related to infrastructure development, transportation access, and economic growth.</p>
+                </div>
+            </div>
+    
+            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district2-info')">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">District 2 (North/Northeast Portland)</h3>
+                        <p class="text-gray-600">Click to learn more</p>
+                    </div>
+                    <div class="text-2xl font-bold text-blue-600">2</div>
+                </div>
+                <div id="district2-info" class="profile-section mt-4">
+                    <p class="text-gray-700">North and Northeast Portland district includes historic neighborhoods like Albina, Irvington, and St. Johns. This district has a rich cultural heritage and is focused on addressing issues of housing affordability and community preservation.</p>
+                </div>
+            </div>
+    
+            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district3-info')">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">District 3 (Southeast Portland)</h3>
+                        <p class="text-gray-600">Click to learn more</p>
+                    </div>
+                    <div class="text-2xl font-bold text-blue-600">3</div>
+                </div>
+                <div id="district3-info" class="profile-section mt-4">
+                    <p class="text-gray-700">Southeast Portland district covers neighborhoods like Hawthorne, Division, and Foster-Powell. Known for its vibrant small business districts and residential areas, this district focuses on sustainable development and maintaining neighborhood character.</p>
+                </div>
+            </div>
+    
+            <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('district4-info')">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">District 4 (West/Southwest Portland)</h3>
+                        <p class="text-gray-600">Click to learn more</p>
+                    </div>
+                    <div class="text-2xl font-bold text-blue-600">4</div>
+                </div>
+                <div id="district4-info" class="profile-section mt-4">
+                    <p class="text-gray-700">West and Southwest Portland district includes downtown, Pearl District, and Southwest hills neighborhoods. This district balances urban density with environmental preservation, focusing on transportation infrastructure and urban planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+ <!-- District Map Section -->
+<section class="mb-12 district-section" style="animation-delay: 0.8s">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">District Map</h2>
+    <div class="official-card bg-white rounded-lg shadow-md p-6">
+        <img id="district-map" src="images/district-map.jpg" alt="Portland Districts Map" class="w-full h-auto" />
+    </div>
+</section>
+    
+    <!-- New Form of Government Section -->
+    <section class="mb-12 district-section" style="animation-delay: 0.9s">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">Portland's New Form of Government</h2>
+        <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('new-government')">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">2024 Charter Reform Implementation</h3>
+                    <p class="text-gray-600">Click to learn more</p>
+                </div>
+                <div class="text-2xl">📜</div>
+            </div>
+            <div id="new-government" class="profile-section mt-4">
+                <p class="text-gray-700 mb-4">Portland's new form of government represents the most significant change to the city's governance structure in over a century. Key changes include:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                    <li>Four geographic districts with three council members each</li>
+                    <li>Professional city administrator to manage daily operations</li>
+                    <li>Mayor focused on citywide leadership and policy</li>
+                    <li>City Council concentrated on legislative and oversight duties</li>
+                    <li>Ranked choice voting for all city elections</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ranked Choice Voting Section -->
+    <section class="mb-12 district-section" style="animation-delay: 1.0s">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">Ranked Choice Voting</h2>
+        <div class="official-card bg-white rounded-lg shadow-md p-6" onclick="toggleProfile('ranked-choice')">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">Understanding Portland's New Voting System</h3>
+                    <p class="text-gray-600">Click to learn more</p>
+                </div>
+                <div class="text-2xl">🗳️</div>
+            </div>
+            <div id="ranked-choice" class="profile-section mt-4">
+                <p class="text-gray-700 mb-4">Ranked choice voting allows voters to rank candidates in order of preference. Here's how it works:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                    <li>Voters rank candidates in order of preference (1st, 2nd, 3rd, etc.)</li>
+                    <li>If no candidate receives over 50% of first-choice votes, the candidate with the fewest votes is eliminated</li>
+                    <li>Votes for the eliminated candidate are redistributed to voters' next choices</li>
+                    <li>Process continues until a candidate receives a majority</li>
+                    <li>This system ensures broader representation and eliminates the need for runoff elections</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add these styles to the existing <style> section -->
+    <style>
+    </style>
+    
+    <div class="map-overlay" onclick="toggleMap()"></div>
+    
+    <script>
+    // Add these functions to the existing <script> section
+    </script>
     </main>
 
     <script>
@@ -451,7 +600,7 @@
                 districts.forEach((district, index) => {
                     setTimeout(() => {
                         district.classList.add('visible');
-                    }, 500 + (index * 200)); // Start after title animation (1.5s) with 200ms delay between each
+                    }, 100 + (index * 200)); // Start after title animation (1.5s) with 200ms delay between each
                 });
             }, 500);
         });
