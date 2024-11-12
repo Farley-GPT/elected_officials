@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +7,24 @@
     <title>Know Your Elected Officials in Portland, Oregon 2025</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #a0af1e;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --gradient-start: #1e92af;
+            --gradient-end: #3b82f6;
+        }
+
         @keyframes titleSlideDown {
             0% {
-                transform: translateY(-100px);
+                transform: translateY(-100px) rotate(-5deg);
                 opacity: 0;
             }
+            50% {
+                transform: translateY(20px) rotate(2deg);
+            }
             100% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
         }
@@ -20,50 +32,55 @@
         @keyframes subtitleFadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(20px) scale(0.9);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
         .title-animation {
-            animation: titleSlideDown 1s ease-out forwards;
+            animation: titleSlideDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
 
         .subtitle-animation {
-            animation: subtitleFadeIn 1s ease-out 0.5s forwards;
+            animation: subtitleFadeIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards;
             opacity: 0;
         }
 
         .official-card {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             cursor: pointer;
+            background: linear-gradient(145deg, #ffffff 0%, #f3f4f6 100%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
         
         .official-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: linear-gradient(145deg, #ffffff 0%, #e5e7eb 100%);
         }
         
         .profile-section {
             max-height: 0;
             overflow: hidden;
-            transition: all 0.5s ease-out;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             opacity: 0;
+            transform: translateY(-20px);
         }
         
         .profile-section.active {
             max-height: none;
             opacity: 1;
-            padding: 1rem 0;
+            transform: translateY(0);
+            padding: 1.5rem 0;
         }
-        
+
         .district-section {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         
         .district-section.visible {
@@ -71,72 +88,45 @@
             transform: translateY(0);
         }
 
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            .profile-section.active {
-                max-height: none;
-                overflow-y: auto;
-            }
-
-            .official-card {
-                overflow: hidden;
-            }
-        }
-
-        /* Loading animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #3B82F6;
+        .district-info {
+            background: linear-gradient(145deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 1rem;
+            padding: 2rem;
             color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
+            margin-top: 2rem;
             opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 100;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .district-info.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .scroll-top {
+            background: var(--accent-color);
+            transform: scale(0);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .scroll-top.visible {
-            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .district-info {
+                margin-top: 1rem;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-50">
     <!-- Loading overlay -->
     <div class="loading-overlay">
         <div class="loading-spinner"></div>
@@ -155,6 +145,7 @@
     </header>
 
     <main class="container mx-auto px-4 py-8">
+
     <!-- Mayor Section -->
     <section class="mb-12 district-section" style="animation-delay: 0.1s">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Mayor</h2>
@@ -460,7 +451,7 @@
                 districts.forEach((district, index) => {
                     setTimeout(() => {
                         district.classList.add('visible');
-                    }, 1500 + (index * 200)); // Start after title animation (1.5s) with 200ms delay between each
+                    }, 500 + (index * 200)); // Start after title animation (1.5s) with 200ms delay between each
                 });
             }, 500);
         });
