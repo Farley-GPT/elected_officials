@@ -7,60 +7,41 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #a0af1e;
-            --secondary-color: #3b82f6;
-            --accent-color: #f59e0b;
-            --gradient-start: #1e92af;
-            --gradient-end: #3b82f6;
+            --primary-color: #4A90E2;
+            --text-color: #536c86;
+            --gradient-start: #406c9e;
+            --gradient-end: #2F80ED;
+            --background-color: #F5F5F5;
+            --card-bg: #FFFFFF;
+            --accent-color: #FFA07A;
         }
 
-        @keyframes titleSlideDown {
-            0% {
-                transform: translateY(-100px) rotate(-5deg);
-                opacity: 0;
-            }
-            50% {
-                transform: translateY(20px) rotate(2deg);
-            }
-            100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            animation: fadeIn 2s;
         }
 
-        @keyframes subtitleFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .title-animation {
-            animation: titleSlideDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-
-        .subtitle-animation {
-            animation: subtitleFadeIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards;
-            opacity: 0;
+        header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
         }
 
         .official-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             cursor: pointer;
-            background: linear-gradient(145deg, #ffffff 0%, #f3f4f6 100%);
-            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-        
+
         .official-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            background: linear-gradient(145deg, #ffffff 0%, #e5e7eb 100%);
         }
-        
+
         .profile-section {
             max-height: 0;
             overflow: hidden;
@@ -68,7 +49,7 @@
             opacity: 0;
             transform: translateY(-20px);
         }
-        
+
         .profile-section.active {
             max-height: none;
             opacity: 1;
@@ -81,7 +62,7 @@
             transform: translateY(30px);
             transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-        
+
         .district-section.visible {
             opacity: 1;
             transform: translateY(0);
@@ -103,10 +84,6 @@
             transform: translateY(0);
         }
 
-        header {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-        }
-
         .scroll-top {
             background: var(--accent-color);
             transform: scale(0);
@@ -118,17 +95,114 @@
         }
 
         @media (max-width: 768px) {
-            .district-info {
-                margin-top: 1rem;
-                padding: 1.5rem;
-            }
-        }
+    .district-section {
+        border-left: none;
+        padding: 1rem;
+    }
+}
 
         /* Responsive images */
         img {
             max-width: 100%;
             height: auto;
         }
+
+        #parallax-header {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .parallax-img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, 0);
+            object-fit: cover;
+            min-width: 100%;
+            min-height: 100%;
+            will-change: transform;
+        }
+
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input[type="text"] {
+            width: 50%;
+            max-width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: none;
+        }
+        /* styles.css */
+
+/* District 1 */
+.district-1 {
+    background-color: #a6e795; /* LemonChiffon */
+    border-left: 5px solid #079b51; /* Gold border */
+    border-right: 5px solid #079b51;
+    border-top: 5px solid #079b51; 
+    border-bottom: 5px solid #079b51; 
+}
+
+/* District 2 */
+.district-2 {
+    background-color: #9caeff; /* LightCyan */
+    border-left: 5px solid #1b0ed6; /* Aquamarine border */
+    border-right: 5px solid #1b0ed6;
+    border-top: 5px solid #1b0ed6;
+    border-bottom: 5px solid #1b0ed6;
+}
+
+/* District 3 */
+.district-3 {
+    background-color: #f7ec88; /* MistyRose */
+    border-left: 5px solid #a39a1a; /* Hot Pink border */
+    border-right: 5px solid #a39a1a;
+    border-top: 5px solid #a39a1a;
+    border-bottom: 5px solid #a39a1a;
+}
+
+/* District 4 */
+.district-4 {
+    background-color: #d1b5d0; /* Khaki */
+    border-left: 5px solid #851f80; /* Blue Violet border */
+    border-right: 5px solid #851f80;
+    border-top: 5px solid #851f80;
+    border-bottom: 5px solid #851f80;
+    
+}
+
     </style>
 </head>
 <body class="bg-gray-50">
@@ -142,695 +216,555 @@
         ↑
     </button>
 
-    <header class="bg-blue-700 text-white py-8 shadow-lg">
-        <div class="container mx-auto px-4">
+    <header id="parallax-header" class="relative overflow-hidden">
+        <div class="parallax-container">
+            <img src="images/cover-flag.jpg" alt="Portland Night Skyline" class="parallax-img">
+        </div>
+        <div class="header-content">
             <h1 class="text-4xl font-bold text-center mb-2 title-animation">Know Your Elected Officials</h1>
             <h2 class="text-2xl text-center subtitle-animation">Portland, Oregon 2025</h2>
         </div>
     </header>
 
+    <div class="search-bar mt-4">
+        <input type="text" id="searchInput" placeholder="Search officials..." class="w-full p-2 border rounded">
+    </div>
+
     <main class="container mx-auto px-4 py-8">
-
-    <!-- Mayor Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.1s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">Mayor</h2>
-        <div class="grid grid-cols-1 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="mayor-wilson">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Keith Wilson</h3>
-                        <p class="text-gray-600">Mayor of Portland</p>
+        <!-- Mayor Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.1s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Mayor</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="mayor-wilson">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Keith Wilson</h3>
+                            <p class="text-gray-600">Mayor of Portland</p>
+                        </div>
+                        <img src="images/keith-wilson.jpg" alt="Keith Wilson" class="w-16 h-16 rounded-full object-cover"/>
                     </div>
-                    <img src="images/keith-wilson.jpg" alt="Keith Wilson" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="mayor-wilson" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/keith-wilson.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700 mb-4">
-                        I am a father, a neighbor, and a proud Portlander with a vision for a city crying out for real change.
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        We all see the pain of our unsheltered neighbors, the devastating impact on our community, and the unsustainable strain on local government. Enough is enough. We refuse to accept the status quo. Within one year, I’ll end unsheltered homelessness in our city.
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        You’ve heard promises before. Here’s the hard-won experience that will make this a reality:
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        In addition to my decades as an executive, I am also the founder of Shelter Portland, an innovative non-profit organization making progress in the battle to end unsheltered homelessness. I have assembled a team of experts with a winning blueprint to compassionately and immediately eliminate unsheltered homelessness without further burdening our taxpayers. We’ve seen real results, but we have so much more work to do.
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        Reforming our approach to unsheltered homelessness is a big challenge, but it isn’t my first. My transformational leadership took a decades-old trucking business, eliminated all fossil fuel usage in Portland, and built an unmatched safety culture while growing the company six times over. I want to bring that same award-winning innovation and operational competence to the city we love.
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        The city politicians and their failed policies that got us into this mess can’t be trusted to get us out. We need real change for our great city.
-                    </p>
-                    <p class="text-gray-700 mb-4">
-                        I’m rolling up my sleeves to get to work, and I want you by my side. Let’s build Portland’s future together.
-                    </p>
-                    <p class="text-xl font-bold mt-8">Keith Wilson</p>
+                    <div id="mayor-wilson" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/keith-wilson.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700 mb-4">
+                            I am a father, a neighbor, and a proud Portlander with a vision for a city crying out for real change.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            We all see the pain of our unsheltered neighbors, the devastating impact on our community, and the unsustainable strain on local government. Enough is enough. We refuse to accept the status quo. Within one year, I’ll end unsheltered homelessness in our city.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            You’ve heard promises before. Here’s the hard-won experience that will make this a reality:
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            In addition to my decades as an executive, I am also the founder of Shelter Portland, an innovative non-profit organization making progress in the battle to end unsheltered homelessness. I have assembled a team of experts with a winning blueprint to compassionately and immediately eliminate unsheltered homelessness without further burdening our taxpayers. We’ve seen real results, but we have so much more work to do.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Reforming our approach to unsheltered homelessness is a big challenge, but it isn’t my first. My transformational leadership took a decades-old trucking business, eliminated all fossil fuel usage in Portland, and built an unmatched safety culture while growing the company six times over. I want to bring that same award-winning innovation and operational competence to the city we love.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            The city politicians and their failed policies that got us into this mess can’t be trusted to get us out. We need real change for our great city.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            I’m rolling up my sleeves to get to work, and I want you by my side. Let’s build Portland’s future together.
+                        </p>
+                        <p class="text-xl font-bold mt-8">Keith Wilson</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- District 1 Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.2s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">District 1 (East Portland)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="avalos">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Candace Avalos</h3>
-                        <p class="text-gray-600">Council Member</p>
+        <!-- District 1 Section -->
+        <section class="mb-12 district-section district-1" style="animation-delay: 0.2s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 1 (East Portland)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="avalos">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Candace Avalos</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/candace-avalos.jpg" alt="Candace Avalos" class="w-16 h-16 rounded-full object-cover"/>
                     </div>
-                    <img src="images/candace-avalos.jpg" alt="Candace Avalos" class="w-16 h-16 rounded-full object-cover"/>
+                    <div id="avalos" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/candace-avalos.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Candace Avalos is the Executive Director of Verde, a nonprofit focused on environmental and social justice.</p>
+                        <p class="text-gray-700">She has chaired the City of Portland's Citizen Review Committee and served on the Portland Charter Commission.</p>
+                        <p class="text-gray-700">With a background in education and civic engagement, Avalos has been actively involved in community advocacy.</p>
+                        <p class="text-gray-700">Her key initiatives include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Addressing environmental justice issues in East Portland</li>
+                            <li>Expanding Portland Street Response</li>
+                            <li>Advocating for affordable housing solutions</li>
+                            <li>Promoting community engagement and accountability in governance</li>
+                        </ul>
+                        <p class="text-gray-700">She is a Democrat.</p>
+                    </div>
                 </div>
-                <div id="avalos" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/candace-avalos.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Candace Avalos is the Executive Director of Verde, a nonprofit focused on environmental and social justice.</p>
 
-                    <br>
-                    
-                    <p>She has chaired the City of Portland's Citizen Review Committee and served on the Portland Charter Commission.</p>
-                    
-                    <br>
-                    
-                    <p>With a background in education and civic engagement, Avalos has been actively involved in community advocacy.</p>
-                    
-                    <br>
-                    
-                    <p>Her key initiatives include:</p>
-                    <ul>
-                      <li>Addressing environmental justice issues in East Portland</li>
-                      <li>Expanding Portland Street Response</li>
-                      <li>Advocating for affordable housing solutions</li>
-                      <li>Promoting community engagement and accountability in governance</li>
-                    </ul>
-                    
-                    <br>
-                    
-                    <p>She is a Democrat.</p>
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="smith">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Loretta Smith</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/loretta-smith.jpg" alt="Loretta Smith" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="smith" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/loretta-smith.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Loretta Smith served as a Multnomah County Commissioner from 2011 to 2018, advocating for communities of color and low-income residents.</p>
+                        <p class="text-gray-700">Her work includes funding paid summer internships for disadvantaged youth and starting investment funds for minority-owned businesses.</p>
+                        <p class="text-gray-700">Smith, a Democrat, has been involved in public service for nearly three decades.</p>
+                        <p class="text-gray-700">Her priorities include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Expanding job training and internships</li>
+                            <li>Addressing unsanctioned camping</li>
+                            <li>Improving transit access and traffic calming measures</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="dunphy">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Jamie Dunphy</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/jamie-dunphy.jpg" alt="Jamie Dunphy" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="dunphy" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/jamie-dunphy.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Jamie Dunphy has over 14 years of experience in public policy, currently serving as the Oregon Government Relations Director for the American Cancer Society.</p>
+                        <p class="text-gray-700">He previously worked as Senior Policy Director for Portland City Commissioner Nick Fish and has been involved in various community improvement projects.</p>
+                        <p class="text-gray-700">Dunphy, a Liberal, is focused on:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Addressing housing stability and rent stabilization</li>
+                            <li>Devising homelessness solutions</li>
+                            <li>Implementing public safety reforms and enhancing police accountability</li>
+                            <li>Advocating for inclusivity in city spaces</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="smith">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Loretta Smith</h3>
-                        <p class="text-gray-600">Council Member</p>
+        <!-- District 2 Section -->
+        <section class="mb-12 district-section district-2" style="animation-delay: 0.3s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 2 (North and Northeast Portland)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="ryan">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Dan Ryan</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/dan-ryan.jpg" alt="Dan Ryan" class="w-16 h-16 rounded-full object-cover"/>
                     </div>
-                    <img src="images/loretta-smith.jpg" alt="Loretta Smith" class="w-16 h-16 rounded-full object-cover"/>
+                    <div id="ryan" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/dan-ryan.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Dan Ryan, a Progressive, is the former CEO of the nonprofit All Hands Raised, which focuses on education, and served on the Portland School Board before being elected to the City Council in 2020.</p>
+                        <p class="text-gray-700">He is committed to serving marginalized communities.</p>
+                        <p class="text-gray-700">Ryan's key initiatives include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Developing Safe Rest Villages</li>
+                            <li>Advocating for housing legislation</li>
+                            <li>Promoting community safety</li>
+                            <li>Increasing funding for arts and culture</li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="smith" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/loretta-smith.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Loretta Smith served as a Multnomah County Commissioner from 2011 to 2018, advocating for communities of color and low-income residents.</p>
 
-                    <br>
-                    
-                    <p>Her work includes funding paid summer internships for disadvantaged youth and starting investment funds for minority-owned businesses.</p>
-                    
-                    <br>
-                    
-                    <p>Smith, a Democrat, has been involved in public service for nearly three decades.</p>
-                    
-                    <br>
-                    
-                    <p>Her priorities include:</p>
-                    <ul>
-                      <li>Expanding job training and internships</li>
-                      <li>Addressing unsanctioned camping</li>
-                      <li>Improving transit access and traffic calming measures</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="pirtle-guiney">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Elana Pirtle-Guiney</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/elana-pirtle-guiney.jpg" alt="Elana Pirtle-Guiney" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="pirtle-guiney" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/elana-pirtle-guiney.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Elana Pirtle-Guiney, a Progressive, has worked as a Legislative Director and Policy Advisor for Oregon Governors Kate Brown and John Kitzhaber, and at the Oregon AFL-CIO.</p>
+                        <p class="text-gray-700">She spearheaded legislation including Oregon's paid family leave law and minimum wage increases.</p>
+                        <p class="text-gray-700">Her priorities include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Expanding affordable housing</li>
+                            <li>Implementing effective public safety responses</li>
+                            <li>Enhancing workforce development</li>
+                            <li>Fostering government responsiveness</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="kanal">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Sameer Kanal</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/sameer-kanal.jpg" alt="Sameer Kanal" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="kanal" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/sameer-kanal.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Sameer Kanal, a Progressive, is the Inclusive Policy Manager at the City of Portland Public Safety Service Area, focusing on community-engaged policing and Portland Street Response.</p>
+                        <p class="text-gray-700">He is also the Executive Director for the Northwest Association for Global Affairs.</p>
+                        <p class="text-gray-700">Kanal's initiatives include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Advocating for Safe Routes to School</li>
+                            <li>Addressing potholes</li>
+                            <li>Focusing on violence prevention</li>
+                            <li>Ensuring 24/7 Portland Street Response</li>
+                            <li>Improving community safety</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="dunphy">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Jamie Dunphy</h3>
-                        <p class="text-gray-600">Council Member</p>
+        <!-- District 3 Section -->
+        <section class="mb-12 district-section district-3" style="animation-delay: 0.4s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 3 (Southeast Portland)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="novick">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Steve Novick</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/steve-novick.jpg" alt="Steve Novick" class="w-16 h-16 rounded-full object-cover"/>
                     </div>
-                    <img src="images/jamie-dunphy.jpg" alt="Jamie Dunphy" class="w-16 h-16 rounded-full object-cover"/>
+                    <div id="novick" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/steve-novick.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Steve Novick served as a Portland City Commissioner from 2013 to 2017.</p>
+                        <p class="text-gray-700">He is an environmental lawyer and a former Trial Attorney for the U.S. Department of Justice.</p>
+                        <p class="text-gray-700">Novick's priorities include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Increasing affordable housing</li>
+                            <li>Reforming zoning laws</li>
+                            <li>Expanding and diversifying the police force</li>
+                            <li>Addressing homelessness</li>
+                            <li>Advocating for pedestrian and bike safety</li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="dunphy" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/jamie-dunphy.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Jamie Dunphy has over 14 years of experience in public policy, currently serving as the Oregon Government Relations Director for the American Cancer Society.</p>
 
-                    <br>
-                    
-                    <p>He previously worked as Senior Policy Director for Portland City Commissioner Nick Fish and has been involved in various community improvement projects.</p>
-                    
-                    <br>
-                    
-                    <p>Dunphy, a Liberal, is focused on:</p>
-                    <ul>
-                      <li>Addressing housing stability and rent stabilization</li>
-                      <li>Devising homelessness solutions</li>
-                      <li>Implementing public safety reforms and enhancing police accountability</li>
-                      <li>Advocating for inclusivity in city spaces</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="koyama-lane">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Tiffany Koyama Lane</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/tiffany-koyama-lane.jpg" alt="Tiffany Koyama Lane" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="koyama-lane" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/tiffany-koyama-lane.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Tiffany Koyama Lane is a public school teacher, union leader, and activist with over 16 years of teaching experience.</p>
+                        <p class="text-gray-700">She is a lead organizer for the Portland Association of Teachers and has been involved in numerous educational campaigns.</p>
+                        <p class="text-gray-700">This Progressive focuses on:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Expanding affordable housing</li>
+                            <li>Improving public education</li>
+                            <li>Enhancing public safety</li>
+                            <li>Supporting addiction and behavioral health services</li>
+                            <li>Protecting renters' rights</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="morillo">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Angelita Morillo</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/angelita-morillo.jpg" alt="Angelita Morillo" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="morillo" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/angelita-morillo.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Angelita Morillo is a policy advocate for Partners for a Hunger-Free Oregon and has served as a Constituent Services Specialist for City Commissioner Jo Ann Hardesty.</p>
+                        <p class="text-gray-700">She serves on Portland's Rental Services Commission.</p>
+                        <p class="text-gray-700">Morillo, a Progressive, is focused on:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Fully funding Portland Street Response</li>
+                            <li>Streamlining housing construction requirements</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- District 2 Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.3s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">District 2 (North and Northeast Portland)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="ryan">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Dan Ryan</h3>
-                        <p class="text-gray-600">Council Member</p>
+        <!-- District 4 Section -->
+        <section class="mb-12 district-section district-4" style="animation-delay: 0.5s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District 4 (West Portland and some eastside neighborhoods)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="clark">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Olivia Clark</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/olivia-clark.jpg" alt="Olivia Clark" class="w-16 h-16 rounded-full object-cover"/>
                     </div>
-                    <img src="images/dan-ryan.jpg" alt="Dan Ryan" class="w-16 h-16 rounded-full object-cover"/>
+                    <div id="clark" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/olivia-clark.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Olivia Clark, a Progressive, has served as the Executive Director of Public Affairs at TriMet and has extensive experience in public service, including founding CASA, a non-profit focused on affordable housing.</p>
+                        <p class="text-gray-700">Her key initiatives include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Advocating for affordable housing</li>
+                            <li>Increasing emergency shelter beds while addressing street camping and drug use</li>
+                            <li>Improving 9-1-1 response times</li>
+                            <li>Supporting public transit expansion</li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="ryan" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/dan-ryan.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Dan Ryan, a Progressive, is the former CEO of the nonprofit All Hands Raised, which focuses on education, and served on the Portland School Board before being elected to the City Council in 2020.</p>
 
-                    <br>
-                    
-                    <p>He is committed to serving marginalized communities.</p>
-                    
-                    <br>
-                    
-                    <p>Ryan's key initiatives include:</p>
-                    <ul>
-                      <li>Developing Safe Rest Villages</li>
-                      <li>Advocating for housing legislation</li>
-                      <li>Promoting community safety</li>
-                      <li>Increasing funding for arts and culture</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="green">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Mitch Green</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/mitch-green.jpg" alt="Mitch Green" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="green" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/mitch-green.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Mitch Green is an Army veteran, energy economist, community college professor, and union member.</p>
+                        <p class="text-gray-700">He has worked for Bonneville Power Administration and taught economics at Portland State University.</p>
+                        <p class="text-gray-700">Green's priorities include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Climate and environmental stewardship</li>
+                            <li>Expanding affordable housing</li>
+                            <li>Investing in pedestrian and cycling infrastructure</li>
+                            <li>Advocating for working families and social housing</li>
+                            <li>Increasing access to clean energy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="zimmerman">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Eric Zimmerman</h3>
+                            <p class="text-gray-600">Council Member</p>
+                        </div>
+                        <img src="images/eric-zimmerman.jpg" alt="Eric Zimmerman" class="w-16 h-16 rounded-full object-cover"/>
+                    </div>
+                    <div id="zimmerman" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/eric-zimmerman.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="text-gray-700">Eric Zimmerman is a lifelong Oregonian who has served as Chief of Staff to two Multnomah County Commissioners and as a Senior Advisor to the Portland Mayor.</p>
+                        <p class="text-gray-700">He has experience as a Deputy City Manager and served in the Oregon Army National Guard, the Iraq War, NATO, and at the U.S. Embassy in Bangladesh.</p>
+                        <p class="text-gray-700">Zimmerman, who is LGBTQ+ supportive, is focused on:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Increasing neighborhood response teams</li>
+                            <li>Expanding temporary shelter sites</li>
+                            <li>Addressing street camping and public drug use</li>
+                            <li>Promoting livability and safety</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="pirtle-guiney">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Elana Pirtle-Guiney</h3>
-                        <p class="text-gray-600">Council Member</p>
+        <!-- City Auditor Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.6s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">City Auditor</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="rede">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Simone Rede</h3>
+                            <p class="text-gray-600">City Auditor</p>
+                        </div>
+                        <img src="images/simone-rede.jpg" alt="Simone Rede" class="w-16 h-16 rounded-full object-cover"/>
                     </div>
-                    <img src="images/elana-pirtle-guiney.jpg" alt="Elana Pirtle-Guiney" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="pirtle-guiney" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/elana-pirtle-guiney.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Elana Pirtle-Guiney, a Progressive, has worked as a Legislative Director and Policy Advisor for Oregon Governors Kate Brown and John Kitzhaber, and at the Oregon AFL-CIO.</p>
-
-                    <br>
-                    
-                    <p>She spearheaded legislation including Oregon's paid family leave law and minimum wage increases.</p>
-                    
-                    <br>
-                    
-                    <p>Her priorities include:</p>
-                    <ul>
-                      <li>Expanding affordable housing</li>
-                      <li>Implementing effective public safety responses</li>
-                      <li>Enhancing workforce development</li>
-                      <li>Fostering government responsiveness</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="kanal">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Sameer Kanal</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/sameer-kanal.jpg" alt="Sameer Kanal" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="kanal" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/sameer-kanal.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Sameer Kanal, a Progressive, is the Inclusive Policy Manager at the City of Portland Public Safety Service Area, focusing on community-engaged policing and Portland Street Response.</p>
-
-                    <br>
-                    
-                    <p>He is also the Executive Director for the Northwest Association for Global Affairs.</p>
-                    
-                    <br>
-                    
-                    <p>Kanal's initiatives include:</p>
-                    <ul>
-                      <li>Advocating for Safe Routes to School</li>
-                      <li>Addressing potholes</li>
-                      <li>Focusing on violence prevention</li>
-                      <li>Ensuring 24/7 Portland Street Response</li>
-                      <li>Improving community safety</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- District 3 Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.4s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">District 3 (Southeast Portland)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="novick">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Steve Novick</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/steve-novick.jpg" alt="Steve Novick" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="novick" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/steve-novick.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Steve Novick served as a Portland City Commissioner from 2013 to 2017.</p>
-
-                    <br>
-                    
-                    <p>He is an environmental lawyer and a former Trial Attorney for the U.S. Department of Justice.</p>
-                    
-                    <br>
-                    
-                    <p>Novick's priorities include:</p>
-                    <ul>
-                      <li>Increasing affordable housing</li>
-                      <li>Reforming zoning laws</li>
-                      <li>Expanding and diversifying the police force</li>
-                      <li>Addressing homelessness</li>
-                      <li>Advocating for pedestrian and bike safety</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="koyama-lane">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Tiffany Koyama Lane</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/tiffany-koyama-lane.jpg" alt="Tiffany Koyama Lane" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="koyama-lane" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/tiffany-koyama-lane.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Tiffany Koyama Lane is a public school teacher, union leader, and activist with over 16 years of teaching experience.</p>
-
-                    <br>
-                    
-                    <p>She is a lead organizer for the Portland Association of Teachers and has been involved in numerous educational campaigns.</p>
-                    
-                    <br>
-                    
-                    <p>This Progressive focuses on:</p>
-                    <ul>
-                      <li>Expanding affordable housing</li>
-                      <li>Improving public education</li>
-                      <li>Enhancing public safety</li>
-                      <li>Supporting addiction and behavioral health services</li>
-                      <li>Protecting renters' rights</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="morillo">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Angelita Morillo</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/angelita-morillo.jpg" alt="Angelita Morillo" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="morillo" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/angelita-morillo.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Angelita Morillo is a policy advocate for Partners for a Hunger-Free Oregon and has served as a Constituent Services Specialist for City Commissioner Jo Ann Hardesty.</p>
-
-                    <br>
-                    
-                    <p>She serves on Portland's Rental Services Commission.</p>
-                    
-                    <br>
-                    
-                    <p>Morillo, a Progressive, is focused on:</p>
-                    <ul>
-                      <li>Fully funding Portland Street Response</li>
-                      <li>Streamlining housing construction requirements</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- District 4 Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.5s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">District 4 (West Portland and some eastside neighborhoods)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="clark">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Olivia Clark</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/olivia-clark.jpg" alt="Olivia Clark" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="clark" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/olivia-clark.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Olivia Clark, a Progressive, has served as the Executive Director of Public Affairs at TriMet and has extensive experience in public service, including founding CASA, a non-profit focused on affordable housing.</p>
-
-                    <br>
-                    
-                    <p>Her key initiatives include:</p>
-                    <ul>
-                      <li>Advocating for affordable housing</li>
-                      <li>Increasing emergency shelter beds while addressing street camping and drug use</li>
-                      <li>Improving 9-1-1 response times</li>
-                      <li>Supporting public transit expansion</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="green">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Mitch Green</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/mitch-green.jpg" alt="Mitch Green" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="green" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/mitch-green.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Mitch Green is an Army veteran, energy economist, community college professor, and union member.</p>
-
-                    <br>
-                    
-                    <p>He has worked for Bonneville Power Administration and taught economics at Portland State University.</p>
-                    
-                    <br>
-                    
-                    <p>Green's priorities include:</p>
-                    <ul>
-                      <li>Climate and environmental stewardship</li>
-                      <li>Expanding affordable housing</li>
-                      <li>Investing in pedestrian and cycling infrastructure</li>
-                      <li>Advocating for working families and social housing</li>
-                      <li>Increasing access to clean energy</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="zimmerman">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Eric Zimmerman</h3>
-                        <p class="text-gray-600">Council Member</p>
-                    </div>
-                    <img src="images/eric-zimmerman.jpg" alt="Eric Zimmerman" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="zimmerman" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/eric-zimmerman.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <p class="text-gray-700"><p>Eric Zimmerman is a lifelong Oregonian who has served as Chief of Staff to two Multnomah County Commissioners and as a Senior Advisor to the Portland Mayor.</p>
-
-                    <br>
-                    
-                    <p>He has experience as a Deputy City Manager and served in the Oregon Army National Guard, the Iraq War, NATO, and at the U.S. Embassy in Bangladesh.</p>
-                    
-                    <br>
-                    
-                    <p>Zimmerman, who is LGBTQ+ supportive, is focused on:</p>
-                    <ul>
-                      <li>Increasing neighborhood response teams</li>
-                      <li>Expanding temporary shelter sites</li>
-                      <li>Addressing street camping and public drug use</li>
-                      <li>Promoting livability and safety</li>
-                    </ul>
-                    
-                    <br>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- City Auditor Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.6s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">City Auditor</h2>
-        <div class="grid grid-cols-1 gap-6">  <!-- Adjusted grid for single auditor -->
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="rede">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">Simone Rede</h3>
-                        <p class="text-gray-600">City Auditor</p>
-                    </div>
-                    <img src="images/simone-rede.jpg" alt="Simone Rede" class="w-16 h-16 rounded-full object-cover"/>
-                </div>
-                <div id="rede" class="profile-section mt-4">
-                    <audio controls class="w-full mb-4">
-                        <source src="audio/simone-rede.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <div class="container mx-auto px-4 py-8">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Simone Rede Re-Elected as Portland City Auditor</h2>
-                        <div class="text-lg text-gray-700">
-                            <p class="mb-4">Simone Rede was re-elected as Portland City Auditor in the 2024 election, continuing her tenure that began in January 2023. As the first person of color and the first LGBTQ+ individual to hold this position, Rede has brought a fresh perspective to the role of Portland's elected, independent watchdog.</p>
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Background in Public Service</h3>
-                            <p class="mb-4">Rede's professional background is deeply rooted in public service and auditing. She is a Certified Internal Auditor and a Certified Government Auditing Professional with over 15 years of experience in public service. Her academic credentials include a master's degree in public policy and management from Carnegie Mellon University and a bachelor's degree in urban studies from Vassar College.</p>
-                            <p class="mb-4">Prior to becoming City Auditor, Rede worked as a principal management auditor at Metro regional government and as a staff auditor at the Oregon Secretary of State Audits Division. Her experience extends to improving access to higher education in Portland area alternative schools. Rede's expertise has been recognized nationally, as she serves on the United States Government Accountability Office Domestic Working Group, addressing accountability issues across all levels of government.</p>
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Focus on Accountability and Accessibility</h3>
-                            <p class="mb-4">During her first term, Rede focused on making Portland's city government more accountable and accessible to the public. She implemented several initiatives, including building a constituent relations function for the Office and releasing reports that highlighted mismanagement, waste, and harm to Portlanders. Notably, she oversaw the first City audit of the Joint Office of Homeless Services.</p>
-                            <p class="mb-4">Rede's approach to auditing is people-centered, emphasizing the selection of topics that matter to Portlanders and inviting public input to inform the work of her office. She has actively sought community perspectives through surveys and focus groups when developing audit schedules and gathering evidence for conclusions.</p>
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Personal Life and Continued Service</h3>
-                            <p class="mb-4">In her personal life, Rede is an Oregonian, born in Salem and raised in Portland. She describes herself as the daughter of journalists, which she credits for her questioning nature. Rede is also an artist, having sung in choirs and played musical instruments for most of her life. She lives in northeast Portland with her wife and their three dogs.</p>
-                            <p class="mb-4">As Portland transitions to a new form of government, Rede's re-election ensures continuity and stability. Her experience and leadership are considered assets to the City and the people of Portland during this period of change. Rede's commitment to protecting the Office's independence and educating newly elected and appointed leaders about the Auditor's role remains a top priority for her second term.</p>
+                    <div id="rede" class="profile-section mt-4">
+                        <audio controls class="w-full mb-4">
+                            <source src="audio/simone-rede.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="container mx-auto px-4 py-8">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4">Simone Rede Re-Elected as Portland City Auditor</h2>
+                            <div class="text-lg text-gray-700">
+                                <p class="mb-4">Simone Rede was re-elected as Portland City Auditor in the 2024 election, continuing her tenure that began in January 2023. As the first person of color and the first LGBTQ+ individual to hold this position, Rede has brought a fresh perspective to the role of Portland's elected, independent watchdog.</p>
+                                <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Background in Public Service</h3>
+                                <p class="mb-4">Rede's professional background is deeply rooted in public service and auditing. She is a Certified Internal Auditor and a Certified Government Auditing Professional with over 15 years of experience in public service. Her academic credentials include a master's degree in public policy and management from Carnegie Mellon University and a bachelor's degree in urban studies from Vassar College.</p>
+                                <p class="mb-4">Prior to becoming City Auditor, Rede worked as a principal management auditor at Metro regional government and as a staff auditor at the Oregon Secretary of State Audits Division. Her experience extends to improving access to higher education in Portland area alternative schools. Rede's expertise has been recognized nationally, as she serves on the United States Government Accountability Office Domestic Working Group, addressing accountability issues across all levels of government.</p>
+                                <h3 class="text-2xl font-semibold text-gray-900 mb-2">A Focus on Accountability and Accessibility</h3>
+                                <p class="mb-4">During her first term, Rede focused on making Portland's city government more accountable and accessible to the public. She implemented several initiatives, including building a constituent relations function for the Office and releasing reports that highlighted mismanagement, waste, and harm to Portlanders. Notably, she oversaw the first City audit of the Joint Office of Homeless Services.</p>
+                                <p class="mb-4">Rede's approach to auditing is people-centered, emphasizing the selection of topics that matter to Portlanders and inviting public input to inform the work of her office. She has actively sought community perspectives through surveys and focus groups when developing audit schedules and gathering evidence for conclusions.</p>
+                                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Personal Life and Continued Service</h3>
+                                <p class="mb-4">In her personal life, Rede is an Oregonian, born in Salem and raised in Portland. She describes herself as the daughter of journalists, which she credits for her questioning nature. Rede is also an artist, having sung in choirs and played musical instruments for most of her life. She lives in northeast Portland with her wife and their three dogs.</p>
+                                <p class="mb-4">As Portland transitions to a new form of government, Rede's re-election ensures continuity and stability. Her experience and leadership are considered assets to the City and the people of Portland during this period of change. Rede's commitment to protecting the Office's independence and educating newly elected and appointed leaders about the Auditor's role remains a top priority for her second term.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Description of Geographic Districts -->
-    <section class="mb-12 district-section" style="animation-delay: 0.7s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">Description of Geographic Districts</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district1-info">
+        <!-- Description of Geographic Districts -->
+        <section class="mb-12 district-section" style="animation-delay: 0.7s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Description of Geographic Districts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district1-info">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">District 1 (East Portland)</h3>
+                            <p class="text-gray-600">Click to learn more</p>
+                        </div>
+                        <div class="text-2xl font-bold text-blue-600">1</div>
+                    </div>
+                    <div id="district1-info" class="profile-section mt-4">
+                        <p class="text-gray-700">East Portland district encompasses the areas east of 82nd Avenue, including the neighborhoods of Lents, Powellhurst-Gilbert, and Pleasant Valley. This district faces unique challenges related to infrastructure development, transportation access, and economic growth.</p>
+                        <p class="text-gray-700">Beginning at the northeast corner of the city boundary, the boundary runs south along the city’s eastern edge to its southeastern corner, then continues west along the southern boundary to SE Clatsop Street and SE 82nd Avenue. From there, it extends north along SE 82nd Avenue to SE Division Street, following SE Division Street east to Interstate 205. The boundary continues north along Interstate 205 to Interstate 84, then follows Interstate 84 east to NE 102nd Avenue.</p>
+                        <p class="text-gray-700">The boundary proceeds north along NE 102nd Avenue to NE Prescott Street and west along NE Prescott Street to Interstate 205, following Interstate 205 north to NE Sandy Boulevard. From NE Sandy Boulevard, it moves southwest to NE 92nd Avenue and south along NE 92nd Avenue to NE Skidmore Street. It runs west along NE Skidmore Street to NE Sandy Boulevard, then follows NE Sandy Boulevard southwest to NE 82nd Avenue and north to Census Block 410510076001012. The boundary continues north along this block’s western edge to NE Lombard Street, extending east along NE Lombard Street to NE 82nd Avenue.</p>
+                        <p class="text-gray-700">At NE 82nd Avenue, the boundary moves north to the southeast corner of Census Block 410510073001078, follows the southern edge of this block to NE Alderwood Road, and proceeds northeast along NE Alderwood Road to NE Cornfoot Road. The boundary extends west along NE Cornfoot Road to NE 47th Avenue, then runs south along NE 47th Avenue to Census Block 410510073001067. It continues along the southern boundary of this block to Census Block 410510073001021 and follows its western edge to NE 47th Avenue. The boundary proceeds north along NE 47th Avenue to NE Elrod Road, west along NE Elrod Road to NE 33rd Drive, and north along NE 33rd Drive to the city’s northern boundary, where it continues east to the starting point.</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district2-info">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">District 2 (North/Northeast Portland)</h3>
+                            <p class="text-gray-600">Click to learn more</p>
+                        </div>
+                        <div class="text-2xl font-bold text-blue-600">2</div>
+                    </div>
+                    <div id="district2-info" class="profile-section mt-4">
+                        <p class="text-gray-700">North and Northeast Portland district includes historic neighborhoods like Albina, Irvington, and St. Johns. This district has a rich cultural heritage and is focused on addressing issues of housing affordability and community preservation.</p>
+                        <p class="text-gray-700">Beginning at the intersection of Interstate 5 and the city’s northern boundary, the boundary extends west to the confluence of the Willamette and Columbia Rivers. It follows the Willamette River south to the Steel Bridge, crossing the bridge to the west corner of Census Block 410510021012016. The boundary follows the western edge of this block to Census Block 410510023032031 and continues along its southern edge to NE Martin Luther King Jr. Boulevard.</p>
+                        <p class="text-gray-700">From NE MLK Jr. Boulevard, the boundary heads south to Interstate 84, then east along Interstate 84 to NE 47th Avenue. It moves north along NE 47th Avenue to NE Wiberg Lane, continuing along NE Wiberg Lane to NE Alameda Street. The boundary runs east along NE Alameda Street to NE 47th Avenue, then north along NE 47th Avenue to NE Fremont Street. It proceeds east along NE Fremont Street to NE 63rd Avenue and north along NE 63rd Avenue to NE Prescott Street.</p>
+                        <p class="text-gray-700">From NE Prescott Street, the boundary continues east to NE 82nd Avenue, then north along NE 82nd Avenue to Census Block 410510076001012. It follows the western edge of this block north to NE Lombard Street, extends east along NE Lombard Street to NE 82nd Avenue, and moves north to the southeast corner of Census Block 410510073001078. The boundary follows this block’s southern edge to NE Alderwood Road, west along NE Alderwood Road to NE Cornfoot Road, and west along NE Cornfoot Road to NE 47th Avenue. It proceeds south along NE 47th Avenue to Census Block 410510073001067, follows this block’s southern boundary to Census Block 410510073001021, and continues along its western edge to NE 47th Avenue.</p>
+                        <p class="text-gray-700">The boundary runs north along NE 47th Avenue to NE Elrod Road, west along NE Elrod Road to NE 33rd Drive, and north along NE 33rd Drive to the city’s northern boundary, where it extends westward to the starting point.</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district3-info">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">District 3 (Southeast Portland)</h3>
+                            <p class="text-gray-600">Click to learn more</p>
+                        </div>
+                        <div class="text-2xl font-bold text-blue-600">3</div>
+                    </div>
+                    <div id="district3-info" class="profile-section mt-4">
+                        <p class="text-gray-700">Southeast Portland district covers neighborhoods like Hawthorne, Division, and Foster-Powell. Known for its vibrant small business districts and residential areas, this district focuses on sustainable development and maintaining neighborhood character.</p>
+                        <p class="text-gray-700">Beginning at the intersection of SE 82nd Avenue and the city’s southern boundary, the boundary proceeds north along SE 82nd Avenue to its intersection with SE Division Street. From there, it extends east along SE Division Street to Interstate 205, following the interstate north to its intersection with Interstate 84. The boundary continues east along Interstate 84 to NE 102nd Avenue, then moves north along NE 102nd Avenue to the city boundary shared with Maywood Park. It follows the western boundary of Maywood Park to the intersection of NE Skidmore Street and NE 90th Avenue, then proceeds west along NE Skidmore Street to NE Sandy Boulevard. From there, the boundary runs southwest along NE Sandy Boulevard to NE 82nd Avenue and continues north to NE Prescott Street.</p>
+                        <p class="text-gray-700">At NE Prescott Street, the boundary extends west to NE 63rd Avenue, then south along NE 63rd Avenue to NE Fremont Street. It moves west along NE Fremont Street to NE 47th Avenue, continuing south to NE Alameda Street. From NE Alameda Street, it proceeds west to NE Wiberg Lane and runs south along NE Wiberg Lane back to NE 47th Avenue. The boundary continues south along NE 47th Avenue to Interstate 84, follows Interstate 84 west to NE Martin Luther King Jr. Boulevard, and then moves north along NE MLK Jr. Boulevard to the southeast corner of Census Block 410510023032031.</p>
+                        <p class="text-gray-700">The boundary follows the southern edge of this census block to the southeast corner of Census Block 410510021012016 and continues along its southern edge to the Steel Bridge. Crossing the Steel Bridge, it proceeds to the centerline of the Willamette River, following the river south to the Ross Island Bridge. The boundary crosses the Ross Island Bridge to SE McLoughlin Boulevard, then heads south to the southern boundary of Census Block 410510002021000. It follows this boundary east, turning north along the block’s eastern edge to SE Holgate Boulevard. From there, the boundary continues east along SE Holgate Boulevard to SE Cesar E. Chavez Boulevard, south along SE Cesar E. Chavez Boulevard to SE Crystal Springs Road, and east along SE Crystal Springs Road to SE 45th Avenue. It follows SE 45th Avenue south to SE 45th Place, extending further south to the city’s southern boundary and continuing east, including all discontiguous areas, to the starting point at SE 82nd Avenue.</p>
+                    </div>
+                </div>
+
+                <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district4-info">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">District 4 (West/Southwest Portland)</h3>
+                            <p class="text-gray-600">Click to learn more</p>
+                        </div>
+                        <div class="text-2xl font-bold text-blue-600">4</div>
+                    </div>
+                    <div id="district4-info" class="profile-section mt-4">
+                        <p class="text-gray-700">West and Southwest Portland district includes downtown, Pearl District, and Southwest hills neighborhoods. This district balances urban density with environmental preservation, focusing on transportation infrastructure and urban planning.</p>
+                        <p class="text-gray-700">Starting at the southwest corner of the city boundary, the boundary extends north along the city’s western boundary to its intersection with the Willamette River. It follows the river south to the Ross Island Bridge, crossing the bridge to SE McLoughlin Boulevard. From there, it proceeds south along SE McLoughlin Boulevard to the southern boundary of Census Block 410510002021000. The boundary moves east along this southern boundary, then north along its eastern edge to SE Holgate Boulevard.</p>
+                        <p class="text-gray-700">From SE Holgate Boulevard, the boundary continues east to SE Cesar E. Chavez Boulevard, then south along SE Cesar E. Chavez Boulevard to SE Crystal Springs Road. It runs east along SE Crystal Springs Road to SE 45th Avenue, south along SE 45th Avenue to SE 45th Place, and further south to the city’s southern boundary. The boundary then follows the city’s southern edge westward, returning to the starting point.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- District Map Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.8s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">District Map</h2>
+            <div class="official-card bg-white rounded-lg shadow-md p-6">
+                <img id="district-map" src="images/district-map.jpg" alt="Portland Districts Map" class="w-full h-auto" loading="lazy" />
+            </div>
+        </section>
+
+        <!-- New Form of Government Section -->
+        <section class="mb-12 district-section" style="animation-delay: 0.9s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Portland's New Form of Government</h2>
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="new-government">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800">District 1 (East Portland)</h3>
+                        <h3 class="text-xl font-semibold text-gray-800">2024 Charter Reform Implementation</h3>
                         <p class="text-gray-600">Click to learn more</p>
                     </div>
-                    <div class="text-2xl font-bold text-blue-600">1</div>
+                    <div class="text-2xl">📜</div>
                 </div>
-                <div id="district1-info" class="profile-section mt-4">
-                    <p class="text-gray-700"><p>East Portland district encompasses the areas east of 82nd Avenue, including the neighborhoods of Lents, Powellhurst-Gilbert, and Pleasant Valley. This district faces unique challenges related to infrastructure development, transportation access, and economic growth.</p>
-
-                    <br>
-                    
-                    <p>Beginning at the northeast corner of the city boundary, the boundary runs south along the city’s eastern edge to its southeastern corner, then continues west along the southern boundary to SE Clatsop Street and SE 82nd Avenue. From there, it extends north along SE 82nd Avenue to SE Division Street, following SE Division Street east to Interstate 205. The boundary continues north along Interstate 205 to Interstate 84, then follows Interstate 84 east to NE 102nd Avenue.</p>
-                    
-                    <br>
-                    
-                    <p>The boundary proceeds north along NE 102nd Avenue to NE Prescott Street and west along NE Prescott Street to Interstate 205, following Interstate 205 north to NE Sandy Boulevard. From NE Sandy Boulevard, it moves southwest to NE 92nd Avenue and south along NE 92nd Avenue to NE Skidmore Street. It runs west along NE Skidmore Street to NE Sandy Boulevard, then follows NE Sandy Boulevard southwest to NE 82nd Avenue and north to Census Block 410510076001012. The boundary continues north along this block’s western edge to NE Lombard Street, extending east along NE Lombard Street to NE 82nd Avenue.</p>
-                    
-                    <br>
-                    
-                    <p>At NE 82nd Avenue, the boundary moves north to the southeast corner of Census Block 410510073001078, follows the southern edge of this block to NE Alderwood Road, and proceeds northeast along NE Alderwood Road to NE Cornfoot Road. The boundary extends west along NE Cornfoot Road to NE 47th Avenue, then runs south along NE 47th Avenue to Census Block 410510073001067. It continues along the southern boundary of this block to Census Block 410510073001021 and follows its western edge to NE 47th Avenue. The boundary proceeds north along NE 47th Avenue to NE Elrod Road, west along NE Elrod Road to NE 33rd Drive, and north along NE 33rd Drive to the city’s northern boundary, where it continues east to the starting point.</p>
+                <div id="new-government" class="profile-section mt-4">
+                    <p class="text-gray-700 mb-4">Portland's new form of government represents the most significant change to the city's governance structure in over a century. Key changes include:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Four geographic districts with three council members each</li>
+                        <li>Professional city administrator to manage daily operations</li>
+                        <li>Mayor focused on citywide leadership and policy</li>
+                        <li>City Council concentrated on legislative and oversight duties</li>
+                        <li>Ranked choice voting for all city elections</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district2-info">
+        <!-- Ranked Choice Voting Section -->
+        <section class="mb-12 district-section" style="animation-delay: 1.0s">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Ranked Choice Voting</h2>
+            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="ranked-choice">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800">District 2 (North/Northeast Portland)</h3>
+                        <h3 class="text-xl font-semibold text-gray-800">Understanding Portland's New Voting System</h3>
                         <p class="text-gray-600">Click to learn more</p>
                     </div>
-                    <div class="text-2xl font-bold text-blue-600">2</div>
+                    <div class="text-2xl">🗳️</div>
                 </div>
-                <div id="district2-info" class="profile-section mt-4">
-                    <p class="text-gray-700"><p>North and Northeast Portland district includes historic neighborhoods like Albina, Irvington, and St. Johns. This district has a rich cultural heritage and is focused on addressing issues of housing affordability and community preservation.</p>
-
-                    <br>
-                    
-                    <p>Beginning at the intersection of Interstate 5 and the city’s northern boundary, the boundary extends west to the confluence of the Willamette and Columbia Rivers. It follows the Willamette River south to the Steel Bridge, crossing the bridge to the west corner of Census Block 410510021012016. The boundary follows the western edge of this block to Census Block 410510023032031 and continues along its southern edge to NE Martin Luther King Jr. Boulevard.</p>
-                    
-                    <br>
-                    
-                    <p>From NE MLK Jr. Boulevard, the boundary heads south to Interstate 84, then east along Interstate 84 to NE 47th Avenue. It moves north along NE 47th Avenue to NE Wiberg Lane, continuing along NE Wiberg Lane to NE Alameda Street. The boundary runs east along NE Alameda Street to NE 47th Avenue, then north along NE 47th Avenue to NE Fremont Street. It proceeds east along NE Fremont Street to NE 63rd Avenue and north along NE 63rd Avenue to NE Prescott Street.</p>
-                    
-                    <br>
-                    
-                    <p>From NE Prescott Street, the boundary continues east to NE 82nd Avenue, then north along NE 82nd Avenue to Census Block 410510076001012. It follows the western edge of this block north to NE Lombard Street, extends east along NE Lombard Street to NE 82nd Avenue, and moves north to the southeast corner of Census Block 410510073001078. The boundary follows this block’s southern edge to NE Alderwood Road, west along NE Alderwood Road to NE Cornfoot Road, and west along NE Cornfoot Road to NE 47th Avenue. It proceeds south along NE 47th Avenue to Census Block 410510073001067, follows this block’s southern boundary to Census Block 410510073001021, and continues along its western edge to NE 47th Avenue.</p>
-                    
-                    <br>
-                    
-                    <p>The boundary runs north along NE 47th Avenue to NE Elrod Road, west along NE Elrod Road to NE 33rd Drive, and north along NE 33rd Drive to the city’s northern boundary, where it extends westward to the starting point.</p>
+                <div id="ranked-choice" class="profile-section mt-4">
+                    <p class="text-gray-700 mb-4">Ranked choice voting allows voters to rank candidates in order of preference. Here's how it works:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Voters rank candidates in order of preference (1st, 2nd, 3rd, etc.)</li>
+                        <li>If no candidate receives over 50% of first-choice votes, the candidate with the fewest votes is eliminated</li>
+                        <li>Votes for the eliminated candidate are redistributed to voters' next choices</li>
+                        <li>Process continues until a candidate receives a majority</li>
+                        <li>This system ensures broader representation and eliminates the need for runoff elections</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district3-info">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">District 3 (Southeast Portland)</h3>
-                        <p class="text-gray-600">Click to learn more</p>
-                    </div>
-                    <div class="text-2xl font-bold text-blue-600">3</div>
-                </div>
-                <div id="district3-info" class="profile-section mt-4">
-                    <p class="text-gray-700"><p>Southeast Portland district covers neighborhoods like Hawthorne, Division, and Foster-Powell. Known for its vibrant small business districts and residential areas, this district focuses on sustainable development and maintaining neighborhood character.</p>
-
-                    <br>
-                    
-                    <p>Beginning at the intersection of SE 82nd Avenue and the city’s southern boundary, the boundary proceeds north along SE 82nd Avenue to its intersection with SE Division Street. From there, it extends east along SE Division Street to Interstate 205, following the interstate north to its intersection with Interstate 84. The boundary continues east along Interstate 84 to NE 102nd Avenue, then moves north along NE 102nd Avenue to the city boundary shared with Maywood Park. It follows the western boundary of Maywood Park to the intersection of NE Skidmore Street and NE 90th Avenue, then proceeds west along NE Skidmore Street to NE Sandy Boulevard. From there, the boundary runs southwest along NE Sandy Boulevard to NE 82nd Avenue and continues north to NE Prescott Street.</p>
-                    
-                    <br>
-                    
-                    <p>At NE Prescott Street, the boundary extends west to NE 63rd Avenue, then south along NE 63rd Avenue to NE Fremont Street. It moves west along NE Fremont Street to NE 47th Avenue, continuing south to NE Alameda Street. From NE Alameda Street, it proceeds west to NE Wiberg Lane and runs south along NE Wiberg Lane back to NE 47th Avenue. The boundary continues south along NE 47th Avenue to Interstate 84, follows Interstate 84 west to NE Martin Luther King Jr. Boulevard, and then moves north along NE MLK Jr. Boulevard to the southeast corner of Census Block 410510023032031.</p>
-                    
-                    <br>
-                    
-                    <p>The boundary follows the southern edge of this census block to the southeast corner of Census Block 410510021012016 and continues along its southern edge to the Steel Bridge. Crossing the Steel Bridge, it proceeds to the centerline of the Willamette River, following the river south to the Ross Island Bridge. The boundary crosses the Ross Island Bridge to SE McLoughlin Boulevard, then heads south to the southern boundary of Census Block 410510002021000. It follows this boundary east, turning north along the block’s eastern edge to SE Holgate Boulevard. From there, the boundary continues east along SE Holgate Boulevard to SE Cesar E. Chavez Boulevard, south along SE Cesar E. Chavez Boulevard to SE Crystal Springs Road, and east along SE Crystal Springs Road to SE 45th Avenue. It follows SE 45th Avenue south to SE 45th Place, extending further south to the city’s southern boundary and continuing east, including all discontiguous areas, to the starting point at SE 82nd Avenue.</p>
-                </div>
-            </div>
-
-            <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="district4-info">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800">District 4 (West/Southwest Portland)</h3>
-                        <p class="text-gray-600">Click to learn more</p>
-                    </div>
-                    <div class="text-2xl font-bold text-blue-600">4</div>
-                </div>
-                <div id="district4-info" class="profile-section mt-4">
-                    <p class="text-gray-700"><p>West and Southwest Portland district includes downtown, Pearl District, and Southwest hills neighborhoods. This district balances urban density with environmental preservation, focusing on transportation infrastructure and urban planning.</p>
-
-                    <br>
-                    
-                    <p>Starting at the southwest corner of the city boundary, the boundary extends north along the city’s western boundary to its intersection with the Willamette River. It follows the river south to the Ross Island Bridge, crossing the bridge to SE McLoughlin Boulevard. From there, it proceeds south along SE McLoughlin Boulevard to the southern boundary of Census Block 410510002021000. The boundary moves east along this southern boundary, then north along its eastern edge to SE Holgate Boulevard.</p>
-                    
-                    <br>
-                    
-                    <p>From SE Holgate Boulevard, the boundary continues east to SE Cesar E. Chavez Boulevard, then south along SE Cesar E. Chavez Boulevard to SE Crystal Springs Road. It runs east along SE Crystal Springs Road to SE 45th Avenue, south along SE 45th Avenue to SE 45th Place, and further south to the city’s southern boundary. The boundary then follows the city’s southern edge westward, returning to the starting point.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- District Map Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.8s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">District Map</h2>
-        <div class="official-card bg-white rounded-lg shadow-md p-6">
-            <img id="district-map" src="images/district-map.jpg" alt="Portland Districts Map" class="w-full h-auto" loading="lazy" />
-        </div>
-    </section>
-
-    <!-- New Form of Government Section -->
-    <section class="mb-12 district-section" style="animation-delay: 0.9s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">Portland's New Form of Government</h2>
-        <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="new-government">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">2024 Charter Reform Implementation</h3>
-                    <p class="text-gray-600">Click to learn more</p>
-                </div>
-                <div class="text-2xl">📜</div>
-            </div>
-            <div id="new-government" class="profile-section mt-4">
-                <p class="text-gray-700 mb-4">Portland's new form of government represents the most significant change to the city's governance structure in over a century. Key changes include:</p>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>Four geographic districts with three council members each</li>
-                    <li>Professional city administrator to manage daily operations</li>
-                    <li>Mayor focused on citywide leadership and policy</li>
-                    <li>City Council concentrated on legislative and oversight duties</li>
-                    <li>Ranked choice voting for all city elections</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ranked Choice Voting Section -->
-    <section class="mb-12 district-section" style="animation-delay: 1.0s">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">Ranked Choice Voting</h2>
-        <div class="official-card bg-white rounded-lg shadow-md p-6" data-profile-id="ranked-choice">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Understanding Portland's New Voting System</h3>
-                    <p class="text-gray-600">Click to learn more</p>
-                </div>
-                <div class="text-2xl">🗳️</div>
-            </div>
-            <div id="ranked-choice" class="profile-section mt-4">
-                <p class="text-gray-700 mb-4">Ranked choice voting allows voters to rank candidates in order of preference. Here's how it works:</p>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>Voters rank candidates in order of preference (1st, 2nd, 3rd, etc.)</li>
-                    <li>If no candidate receives over 50% of first-choice votes, the candidate with the fewest votes is eliminated</li>
-                    <li>Votes for the eliminated candidate are redistributed to voters' next choices</li>
-                    <li>Process continues until a candidate receives a majority</li>
-                    <li>This system ensures broader representation and eliminates the need for runoff elections</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script>
         // Debounce function for scroll event
@@ -848,7 +782,7 @@
             document.querySelector('.loading-overlay').style.opacity = '0';
             setTimeout(() => {
                 document.querySelector('.loading-overlay').style.display = 'none';
-                
+
                 // Start the cascade animation for districts after title animation
                 const districts = document.querySelectorAll('.district-section');
                 districts.forEach((district, index) => {
@@ -865,7 +799,7 @@
             if (target) {
                 const profileId = target.getAttribute('data-profile-id');
                 const profileSection = document.getElementById(profileId);
-                
+
                 // Close all other profiles first
                 document.querySelectorAll('.profile-section.active').forEach(section => {
                     if (section.id !== profileId) {
@@ -901,6 +835,25 @@
                 behavior: 'smooth'
             });
         }
+
+        document.addEventListener('scroll', () => {
+            const header = document.getElementById('parallax-header');
+            const scrolled = window.pageYOffset;
+            const rate = 0.4;
+
+            if (header) {
+                const offset = scrolled * rate;
+                header.querySelector('.parallax-img').style.transform = `translate(-50%, ${offset}px)`;
+            }
+        });
+
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            document.querySelectorAll('.official-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
     </script>
 </body>
 </html>
